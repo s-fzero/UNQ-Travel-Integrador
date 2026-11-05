@@ -1,9 +1,13 @@
-package catalogo;
+package catalogo.servicios;
 
 public abstract class Servicio implements Item{
     private String nombre;
     private String descripcion;
-    private Double precioBase;
+
+    public Servicio(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
     @Override
     public String getNombre(){
@@ -14,7 +18,5 @@ public abstract class Servicio implements Item{
         return this.descripcion;
     }
     @Override
-    public Double getPrecioBase(){
-        return this.precioBase;
-    }
+    public abstract Double getPrecio();
 }
