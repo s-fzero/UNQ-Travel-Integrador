@@ -1,6 +1,6 @@
 package catalogo.atributos;
 
-public interface Tipo {
+public interface ValorGenerico {
     void   setValor(Object valor);
     Object getValor();
 }

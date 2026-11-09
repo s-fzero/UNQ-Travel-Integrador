@@ -1,6 +1,6 @@
 package catalogo.atributos;
 
-public class Numero implements Tipo{
+public class Numero implements ValorGenerico{
 
 
     @Override

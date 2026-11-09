@@ -2,7 +2,7 @@ package catalogo.atributos;
 
 import java.time.LocalDate;
 
-public class Fecha implements Tipo {
+public class Fecha implements ValorGenerico {
     private LocalDate fecha;
 
     public Fecha(LocalDate fecha) {

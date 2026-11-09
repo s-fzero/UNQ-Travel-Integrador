@@ -1,6 +1,6 @@
 package catalogo.atributos;
 
-public class Boolean implements Tipo{
+public class Boolean implements ValorGenerico{
     private java.lang.Boolean bool;
 
     public Boolean(java.lang.Boolean _bool) {

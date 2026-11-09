@@ -1,25 +1,25 @@
 package catalogo;
 
-import catalogo.servicios.Item;
+import catalogo.servicios.Servicio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Catalogo {
-    private List<Item> services;
+    private List<Servicio> services;
 
     public Catalogo() {
         this.services = new ArrayList<>();
     }
 
-    public List<Item> getServicios() {
+    public List<Servicio> getServicios() {
         return services;
     }
 
-    public void agregarItem(Item servicio){
+    public void agregarItem(Servicio servicio){
         this.getServicios().add(servicio);
     }
-    public void eliminarItem(Item servicio){
+    public void eliminarItem(Servicio servicio){
         //this.getServicios().removeIf(item -> item.getNombre().equals(servicio.getNombre()));
         this.getServicios().remove(servicio);
     }

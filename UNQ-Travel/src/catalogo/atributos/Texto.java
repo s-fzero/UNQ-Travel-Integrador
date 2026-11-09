@@ -1,6 +1,6 @@
 package catalogo.atributos;
 
-public class Texto implements Tipo{
+public class Texto implements ValorGenerico{
     private String texto;
 
     public Texto(String _texto) {

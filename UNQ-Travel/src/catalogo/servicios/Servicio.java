@@ -1,6 +1,6 @@
 package catalogo.servicios;
 
-public abstract class Servicio implements Item{
+public abstract class Servicio{
     private String nombre;
     private String descripcion;
 
@@ -9,14 +9,14 @@ public abstract class Servicio implements Item{
         this.descripcion = descripcion;
     }
 
-    @Override
+
     public String getNombre(){
         return this.nombre;
     }
-    @Override
+
     public String getDescripcion(){
         return this.descripcion;
     }
-    @Override
+
     public abstract Double getPrecio();
 }

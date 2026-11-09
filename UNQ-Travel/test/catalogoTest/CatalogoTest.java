@@ -1,7 +1,7 @@
 package catalogoTest;
 
 import catalogo.Catalogo;
-import catalogo.servicios.Item;
+import catalogo.servicios.Servicio;
 import catalogo.servicios.ServicioIndividual;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CatalogoTest {
     private Catalogo catalogo;
-    private Item servicio1;
-    private Item servicio2;
-    private Item servicio3;
+    private Servicio servicio1;
+    private Servicio servicio2;
+    private Servicio servicio3;
     @BeforeEach
     public void setUp(){
         catalogo = new Catalogo();

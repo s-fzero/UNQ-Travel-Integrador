@@ -32,6 +32,6 @@ public final class PaqueteTuristico extends Servicio{
     }
 
     private Double getDescuento() {
-        return descuento;
+        return 1 - descuento;
     }
 }
