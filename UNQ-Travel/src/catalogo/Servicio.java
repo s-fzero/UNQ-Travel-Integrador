@@ -17,4 +17,8 @@ public abstract class Servicio implements Item{
     public Double getPrecioBase(){
         return this.precioBase;
     }
+
+    public void reservarCupo() {
+
+    }
 }
