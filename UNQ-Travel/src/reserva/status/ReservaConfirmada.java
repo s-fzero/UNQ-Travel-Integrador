@@ -3,6 +3,10 @@ package reserva.status;
 import reserva.Reserva;
 
 public class ReservaConfirmada extends ReservaStatus {
+    public ReservaConfirmada(){
+
+    }
+
     @Override
     public void procesarReserva(Reserva r){
         r.realizarCheckIn();

@@ -3,7 +3,9 @@ package reserva.status;
 import reserva.Reserva;
 
 public class ReservaCheckIn extends ReservaStatus {
+    public ReservaCheckIn(){
 
+    }
 
     @Override
     public void procesarReserva(Reserva r) {

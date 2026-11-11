@@ -3,7 +3,6 @@ package reserva.status;
 import reserva.Reserva;
 
 public abstract class ReservaStatus {
-
     public void cambiarEstado(Reserva r, ReservaStatus nuevoEstado){
         r.cambiarEstado(nuevoEstado);
     }
