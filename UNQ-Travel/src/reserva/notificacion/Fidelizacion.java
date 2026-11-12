@@ -12,8 +12,7 @@ public class Fidelizacion implements Subsistema{
 
     public void enviarCupon(){
             Cupon cup = new Cupon("Cupón por cancelación", 0.5);
-            reserva.agregarCupon(cup);
-
+            (cup);
     }
 
 }
