@@ -7,5 +7,7 @@ public abstract class ReservaStatus {
         r.cambiarEstado(nuevoEstado);
     }
     public abstract void procesarReserva(Reserva r);
-    public abstract void cancelarReserva(Reserva r);
+    public void cancelarReserva(Reserva r){
+        this.cambiarEstado(r,new ReservaCancelada());
+    }
 }
