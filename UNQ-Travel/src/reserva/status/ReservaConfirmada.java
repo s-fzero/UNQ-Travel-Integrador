@@ -16,6 +16,6 @@ public class ReservaConfirmada extends ReservaStatus {
     @Override
     public void cancelarReserva(Reserva r) {
         r.reembolsarReserva();
-        this.cambiarEstado(r,new ReservaCancelada());
+        super.cancelarReserva(r);
     }
 }

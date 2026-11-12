@@ -14,6 +14,6 @@ public class ReservaEnCurso extends ReservaStatus {
     @Override
     public void cancelarReserva(Reserva r) {
         r.reembolsarReserva(); // reembolsar servicios q no se usaron.
-        this.cambiarEstado(r, new ReservaCancelada());
+        super.cancelarReserva(r);
     }
 }

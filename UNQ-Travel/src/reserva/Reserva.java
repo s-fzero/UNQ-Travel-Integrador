@@ -29,6 +29,11 @@ public class Reserva {
 
     public void procesarReserva(){ status.procesarReserva(this); }
 
+    public void cancelarReserva(){
+        this.notificarSubsistemas();
+        status.cancelarReserva(this);
+    }
+
     public void reservarCupos() {
         this.getServicios().forEach(Servicio::reservarCupo);
     }
@@ -47,7 +52,7 @@ public class Reserva {
         return this.cobrarServicios(); //Discutir dsp
     }
 
-    public void notificarSubsistema(){
+    public void notificarSubsistemas(){
         for(Subsistema s:subsistemas){
             s.actualizar(this);
         }
