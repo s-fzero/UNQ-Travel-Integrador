@@ -1,18 +1,17 @@
 package reserva.notificacion;
 
 import reserva.Reserva;
+import reserva.status.ReservaCancelada;
 
 public class Fidelizacion implements Subsistema{
-    Reserva reserva;
 
     @Override
     public void actualizar(Reserva res) {
-        reserva = res;
+        if(res.getStatus() instanceof ReservaCancelada){ this.enviarCupon(res); }
     }
 
-    public void enviarCupon(){
-            Cupon cup = new Cupon("Cupón por cancelación", 0.5);
-            (cup);
+    public void enviarCupon(Reserva res){
+            Adjunto cupon = new Cupon("Cupón por cancelación", 0.5);
+            res.agregarAdjunto(cupon);
     }
-
 }

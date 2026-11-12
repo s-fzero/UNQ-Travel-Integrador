@@ -1,6 +1,7 @@
 package reserva;
 
 import catalogo.Servicio;
+import reserva.notificacion.Adjunto;
 import reserva.status.ReservaPendiente;
 import reserva.status.ReservaStatus;
 import reserva.notificacion.Subsistema;
@@ -11,6 +12,7 @@ public class Reserva {
     private List<Servicio> servicios;
     private List<Servicio> historialServicios;
     private List<Subsistema> subsistemas;
+    private List<Adjunto> adjuntos;
     private ReservaStatus status;
 
     public Reserva() {
@@ -60,4 +62,6 @@ public class Reserva {
     public void eliminarSubsistema(Subsistema s){
         this.subsistemas.remove(s);
     }
+
+    public void agregarAdjunto(Adjunto a){ this.adjuntos.add(a);}
 }

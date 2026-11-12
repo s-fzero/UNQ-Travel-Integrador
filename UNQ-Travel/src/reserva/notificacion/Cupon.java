@@ -1,6 +1,6 @@
 package reserva.notificacion;
 
-public class Cupon {
+public class Cupon implements Adjunto {
     String descripcion;
     Double descuento;
 
