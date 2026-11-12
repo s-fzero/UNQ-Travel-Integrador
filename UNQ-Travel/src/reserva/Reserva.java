@@ -20,20 +20,22 @@ public class Reserva {
     }
 
     private List<Servicio> getServicios() {
-        return servicios;
+        return this.servicios;
     }
 
     private List<Servicio> getHistorialServicios() {
-        return historialServicios;
+        return this.historialServicios;
     }
 
-    public void cambiarEstado(ReservaStatus nuevoEstado) { status = nuevoEstado; }
+    public ReservaStatus getStatus() { return this.status;}
 
-    public void procesarReserva(){ status.procesarReserva(this); }
+    public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
+
+    public void procesarReserva(){ this.status.procesarReserva(this); }
 
     public void cancelarReserva(){
         this.notificarSubsistemas();
-        status.cancelarReserva(this);
+        this.status.cancelarReserva(this);
     }
 
     public void reservarCupos() {
