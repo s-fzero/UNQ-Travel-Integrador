@@ -3,6 +3,8 @@ package reserva.notificacion;
 import reserva.Reserva;
 import reserva.status.ReservaCancelada;
 
+import java.util.Date;
+
 public class Fidelizacion implements Subsistema{
 
     @Override
@@ -11,7 +13,7 @@ public class Fidelizacion implements Subsistema{
     }
 
     public void enviarCupon(Reserva res){
-            Adjunto cupon = new Cupon("Cupón por cancelación", 0.5);
+            Adjunto cupon = new Cupon("Cupón por cancelación", new Date(), 0.5);
             res.agregarAdjunto(cupon);
     }
 }
