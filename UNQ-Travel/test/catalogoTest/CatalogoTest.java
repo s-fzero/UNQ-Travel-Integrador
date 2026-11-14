@@ -2,10 +2,10 @@ package catalogoTest;
 
 import catalogo.Catalogo;
 import catalogo.servicios.Servicio;
-import catalogo.servicios.ServicioIndividual;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.Mockito.mock;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -17,17 +17,20 @@ public class CatalogoTest {
     @BeforeEach
     public void setUp(){
         catalogo = new Catalogo();
-        servicio1 = new ServicioIndividual("Servicio1", "Hoteles",
-                                        90d, 939234,"Jaime", "Turismo");
-        servicio2 = new ServicioIndividual("Servicio2", "guardar el auto",
-                90d, 959234,"Jaime", "Estacionamiento");
+
+        servicio1 = mock(Servicio.class);
+        servicio2 = mock(Servicio.class);
+        servicio3 = mock(Servicio.class);
     }
 
     @Test
-    public void catalogoLista(){
+    public void insercionDeServiciosAlCatalogo(){
+
         catalogo.agregarItem(servicio1);
         assertTrue(catalogo.getServicios().contains(servicio1));
         catalogo.eliminarItem(servicio1);
         assertFalse(catalogo.getServicios().contains(servicio1));
+
+
     }
 }

@@ -19,4 +19,14 @@ public abstract class Servicio{
     }
 
     public abstract Double getPrecio();
+
+    public void reservarCupo(){}
+
+//    public transferir(int monto){
+//        this.transferenciaInmediata();
+//    }
+//    public transferir(int monto, date dia){
+//        this.transferenciaProgramada();
+//    }
+
 }

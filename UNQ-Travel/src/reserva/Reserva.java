@@ -1,12 +1,13 @@
 package reserva;
 
-import catalogo.Servicio;
+import catalogo.servicios.Servicio;
 import reserva.notificacion.Adjunto;
+import reserva.notificacion.Subsistema;
 import reserva.status.ReservaPendiente;
 import reserva.status.ReservaStatus;
-import reserva.notificacion.Subsistema;
 
 import java.util.List;
+
 
 public class Reserva {
     private List<Servicio> servicios;
@@ -43,7 +44,7 @@ public class Reserva {
     }
 
     public double cobrarServicios() {
-        return this.getServicios().stream().mapToDouble(servicio -> servicio.getPrecioBase()).sum();
+        return this.getServicios().stream().mapToDouble(servicio -> servicio.getPrecio()).sum();
         //Discutir el tipo de la funcion.
     }
 

@@ -1,7 +1,6 @@
 package reserva.notificacion;
 
 import reserva.Reserva;
-import reserva.status.ReservaCancelada;
 import reserva.status.ReservaFinalizada;
 
 import java.util.Date;

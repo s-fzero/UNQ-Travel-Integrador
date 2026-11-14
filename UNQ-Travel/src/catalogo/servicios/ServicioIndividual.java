@@ -21,22 +21,22 @@ public class ServicioIndividual extends Servicio{
     }
 
     public List<AtributoDinamico> getAtributos() {
-        return atributos;
+        return this.atributos;
     }
 
     public Double getPrecio(){
-        return precioBase;
+        return this.precioBase;
     }
 
     public String getCategoria() {
-        return categoria;
+        return this.categoria;
     }
 
     public String getOperador() {
-        return operador;
+        return this.operador;
     }
 
     public Integer getCodigoReserva() {
-        return codigoReserva;
+        return this.codigoReserva;
     }
 }

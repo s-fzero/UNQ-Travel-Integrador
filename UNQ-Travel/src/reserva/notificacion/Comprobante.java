@@ -1,10 +1,11 @@
 package reserva.notificacion;
 
-import catalogo.Servicio;
+import catalogo.servicios.Servicio;
 import reserva.Reserva;
 
 import java.util.Date;
 import java.util.List;
+
 
 public class Comprobante implements Adjunto {
     String descripcion;
