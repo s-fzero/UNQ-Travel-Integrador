@@ -16,11 +16,11 @@ public class Generador implements Subsistema{
     }
 
     public void crearComprobante(Reserva res){
-        Adjunto comprobante = new Comprobante("Comprobante de reserva", new Date(), Double res.cobrarServicios(), );
+        Adjunto comprobante = new Comprobante("Comprobante de reserva", new Date(), res);
         res.agregarAdjunto(comprobante);
     }
     public void crearVoucher(Reserva res){
-        Adjunto voucher = new Voucher("Cupón por cancelación", 0.5);
+        Adjunto voucher = new Voucher("Voucher de reserva", new Date(), res);
         res.agregarAdjunto(voucher);
     }
 }

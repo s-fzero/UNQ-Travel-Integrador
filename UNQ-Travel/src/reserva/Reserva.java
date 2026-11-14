@@ -19,7 +19,7 @@ public class Reserva {
         this.status = new ReservaPendiente();
     }
 
-    private List<Servicio> getServicios() {
+    public List<Servicio> getServicios() {
         return this.servicios;
     }
 
