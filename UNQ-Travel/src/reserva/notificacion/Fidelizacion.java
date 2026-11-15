@@ -9,7 +9,9 @@ public class Fidelizacion implements Subsistema{
 
     @Override
     public void actualizar(Reserva res) {
-        if(res.getStatus() instanceof ReservaCancelada){ this.enviarCupon(res); }
+        if(res.getStatus() instanceof ReservaCancelada){
+            this.enviarCupon(res);
+        }
     }
 
     public void enviarCupon(Reserva res){

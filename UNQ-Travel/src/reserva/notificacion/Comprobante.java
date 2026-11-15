@@ -8,22 +8,22 @@ import java.util.List;
 
 
 public class Comprobante implements Adjunto {
-    String descripcion;
+    String titulo;
     Date fecha;
     Double precio;
     List<Servicio> servicios;
+    //ProcesadorPago metodoPago;
 
     public Comprobante(String descripcion, Date fecha, Reserva reserva) {
-        this.descripcion = descripcion;
+        this.titulo = descripcion;
         this.fecha = fecha;
         this.precio = reserva.cobrarServicios();
         this.servicios = reserva.getServicios();
+        //this.metodoPago = reserva.getMetodoDePago();
     }
 
     @Override
-    public String getDescripcion() {
-        return descripcion;
-    }
+    public String getTitulo() { return titulo; }
 
     @Override
     public Date getFecha() {

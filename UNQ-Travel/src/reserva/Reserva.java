@@ -10,25 +10,23 @@ import java.util.List;
 
 
 public class Reserva {
+    private String correo;
     private List<Servicio> servicios;
     private List<Servicio> historialServicios;
-    private List<Subsistema> subsistemas;
-    private List<Adjunto> adjuntos;
-    private ReservaStatus status;
+    private List<Subsistema> subsistemas;      // Lista de observers
+    private List<Adjunto> adjuntos;            // Para guardar los archivos adjuntos que recibe de subsistemas
+    private ReservaStatus status;              // Estado de la reserva
 
     public Reserva() {
-        this.status = new ReservaPendiente();
+        this.status = new ReservaPendiente();  // La reserva empieza en estado "Solicitud pendiente"
     }
 
-    public List<Servicio> getServicios() {
-        return this.servicios;
-    }
-
-    private List<Servicio> getHistorialServicios() {
-        return this.historialServicios;
-    }
-
+    // GETTERS
+    public String getCorreo() { return this.correo; }
+    public List<Servicio> getServicios() { return this.servicios; }
+    private List<Servicio> getHistorialServicios() { return this.historialServicios; }
     public ReservaStatus getStatus() { return this.status;}
+    //
 
     public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
 

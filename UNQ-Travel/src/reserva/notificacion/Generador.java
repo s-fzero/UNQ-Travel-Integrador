@@ -18,8 +18,9 @@ public class Generador implements Subsistema{
         Adjunto comprobante = new Comprobante("Comprobante de reserva", new Date(), res);
         res.agregarAdjunto(comprobante);
     }
+
     public void crearVoucher(Reserva res){
-        Adjunto voucher = new Voucher("Voucher de reserva", new Date(), res);
+        Adjunto voucher = new Comprobante("Voucher de reserva", new Date(), res);
         res.agregarAdjunto(voucher);
     }
 }

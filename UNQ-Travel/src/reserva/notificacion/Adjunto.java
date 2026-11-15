@@ -3,6 +3,6 @@ package reserva.notificacion;
 import java.util.Date;
 
 public interface Adjunto {
-    String getDescripcion();
+    String getTitulo();
     Date getFecha();
 }
