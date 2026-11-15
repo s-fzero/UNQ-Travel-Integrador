@@ -18,4 +18,8 @@ public class ReservaConfirmada extends ReservaStatus {
         r.reembolsarReserva();
         super.cancelarReserva(r);
     }
+
+    @Override
+    public boolean debeEnviarMail() {return true;}
+
 }

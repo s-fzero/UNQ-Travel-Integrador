@@ -12,9 +12,11 @@ public class NotificadorMail implements Subsistema, MailSender{
     public void actualizar(Reserva res) {
         reserva = res;
         ReservaStatus estado = res.getStatus();
-        if(estado instanceof ReservaFinalizada ||
-           estado instanceof ReservaConfirmada ||
-           estado instanceof ReservaEnCurso) {
+        generarMail(res, estado);
+    }
+
+    private void generarMail(Reserva res, ReservaStatus estado) {
+        if(estado.debeEnviarMail()) {
             this.enviarMail(res.getCorreo(),
                     "Estado de su reserva",
                     "Su reserva cambió al estado:" + estado.getClass().getSimpleName(),

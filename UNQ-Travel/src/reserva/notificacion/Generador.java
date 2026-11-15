@@ -9,12 +9,19 @@ public class Generador implements Subsistema{
     @Override
     public void actualizar(Reserva res) {
         ReservaStatus estado = res.getStatus();
-        if(estado instanceof ReservaFinalizada){
-            this.crearComprobante(res);
+        generarComprobante(res, estado);
+        generarVoucher(res, estado);
+    }
+
+    private void generarVoucher(Reserva res, ReservaStatus estado) {
+        if (estado.debeGenerarVoucher()){
             this.crearVoucher(res);
         }
-        else if (estado instanceof ReservaCancelada){
-            this.crearVoucher(res);
+    }
+
+    private void generarComprobante(Reserva res, ReservaStatus estado) {
+        if(estado.debeGenerarComprobante()){
+            this.crearComprobante(res);
         }
     }
 
@@ -24,7 +31,7 @@ public class Generador implements Subsistema{
     }
 
     public void crearVoucher(Reserva res){
-        Adjunto voucher = new Comprobante("Voucher", new Date(), res);
+        Adjunto voucher = new Voucher("Voucher", new Date(), res);
         res.agregarAdjunto(voucher);
     }
 }

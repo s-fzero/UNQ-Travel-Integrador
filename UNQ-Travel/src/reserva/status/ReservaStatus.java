@@ -10,4 +10,8 @@ public abstract class ReservaStatus {
     public void cancelarReserva(Reserva r){
         this.cambiarEstado(r,new ReservaCancelada());
     }
+    public boolean debeEnviarMail() {return false;}
+    public boolean debeGenerarComprobante() {return false;}
+    public boolean debeGenerarVoucher() {return false;}
+    public boolean debeFidelizar() {return false;}
 }

@@ -16,4 +16,9 @@ public class ReservaFinalizada extends ReservaStatus{
     public void cancelarReserva(Reserva r) {
 
     }
+
+    @Override
+    public boolean debeEnviarMail() { return true;}
+    public boolean debeGenerarComprobante() { return true;}
+    public boolean debeGenerarVoucher() { return true;}
 }

@@ -16,4 +16,7 @@ public class ReservaEnCurso extends ReservaStatus {
         r.reembolsarReserva(); // reembolsar servicios q no se usaron.
         super.cancelarReserva(r);
     }
+
+    @Override
+    public boolean debeEnviarMail() { return true; }
 }

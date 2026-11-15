@@ -2,6 +2,7 @@ package reserva.notificacion;
 
 import reserva.Reserva;
 import reserva.status.ReservaCancelada;
+import reserva.status.ReservaStatus;
 
 import java.util.Date;
 
@@ -9,7 +10,12 @@ public class Fidelizacion implements Subsistema{
 
     @Override
     public void actualizar(Reserva res) {
-        if(res.getStatus() instanceof ReservaCancelada){
+        ReservaStatus estado = res.getStatus();
+        generarCupon(res, estado);
+    }
+
+    private void generarCupon(Reserva res, ReservaStatus estado) {
+        if(estado.debeFidelizar()){
             this.enviarCupon(res);
         }
     }

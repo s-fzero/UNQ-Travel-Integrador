@@ -16,4 +16,7 @@ public class ReservaCancelada extends ReservaStatus {
     public void procesarReserva(Reserva r) {
 
     }
+
+    @Override
+    public boolean debeGenerarVoucher() { return true; }
 }
