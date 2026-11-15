@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Reserva {
     private String correo;
-    private List<Servicio> servicios;
-    private List<Servicio> historialServicios;
+    private List<Servicio> servicios;          // Lista de servicios por disfrutar. Una vez disfrutados, pasan a historialServicios
+    private List<Servicio> historialServicios; // Lista de servicios disfrutados
     private List<Subsistema> subsistemas;      // Lista de observers
     private List<Adjunto> adjuntos;            // Para guardar los archivos adjuntos que recibe de subsistemas
     private ReservaStatus status;              // Estado de la reserva
