@@ -1,9 +1,13 @@
+package ar.edu.unq.po2.tpIntegrador;
+//ARRIBA LO MÍO; ABAJO COPIADO
+
 package catalogo.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class PaqueteTuristico extends Servicio{
-    private Double descuento;
+    private double descuento;
     private List<Servicio> servicios;
 
     public List<Servicio> getServicios() {
@@ -21,17 +25,18 @@ public final class PaqueteTuristico extends Servicio{
     public PaqueteTuristico(String nombre, String descripcion, Double descuento) {
         super(nombre, descripcion);
         this.descuento = descuento;
+        servicios = new ArrayList<Servicio>();
     }
     @Override
-    public Double getPrecio(){
+    public double getPrecio(){
         return this.getServicios().stream().mapToDouble(Servicio::getPrecio).sum() * this.getDescuento();
     }
 
-    public Double setDescuento(Double descuento){
+    public double setDescuento(double descuento){
         return this.descuento = descuento;
     }
 
-    private Double getDescuento() {
+    private double getDescuento() {
         return 1 - descuento;
     }
 }

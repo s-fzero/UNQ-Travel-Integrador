@@ -3,11 +3,17 @@ package ar.edu.unq.po2.tpIntegrador.test;
 import ar.edu.unq.po2.tpIntegrador.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+// LOS IMPORTS DE ARRIBA SON MÍOS, DE SANTI; LOS DE ABAJO LOS COPIÉ TAL CUAL ESTABAN
+import catalogo.Catalogo;
+import catalogo.servicios.Servicio;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CatalogoTest {
     private Catalogo catalogo;
@@ -22,6 +28,11 @@ public class CatalogoTest {
     private CriterioAnd cb5;
     private CriterioOr cb6;
     private CriterioNot cb7;
+    // ARRIBA MÍO; ABAJO COPIADO
+    private Catalogo catalogo;
+    private Servicio servicio1;
+    private Servicio servicio2;
+    private Servicio servicio3;
 
     @BeforeEach
     public void setUp(){
@@ -47,6 +58,12 @@ public class CatalogoTest {
         cb6.getCriterios().add(cb2);
         cb5.getCriterios().add(cb);
         cb5.getCriterios().add(cb2);
+        //ARRIBA MÍO; ABAJO COPIADO
+        catalogo = new Catalogo();
+
+        servicio1 = mock(Servicio.class);
+        servicio2 = mock(Servicio.class);
+        servicio3 = mock(Servicio.class);
     }
 
     @Test
@@ -102,5 +119,18 @@ public class CatalogoTest {
     public void test009_SePuedeEliminarUnServicioDeUnCatalogo(){
         catalogo.eliminarItem(s4);
         assertEquals(3, catalogo.getServicios().size());
+    }
+    //
+    //ARRIBA MÍO; ABAJO COPIADO
+    //
+    @Test
+    public void insercionDeServiciosAlCatalogo(){
+
+        catalogo.agregarItem(servicio1);
+        assertTrue(catalogo.getServicios().contains(servicio1));
+        catalogo.eliminarItem(servicio1);
+        assertFalse(catalogo.getServicios().contains(servicio1));
+
+
     }
 }

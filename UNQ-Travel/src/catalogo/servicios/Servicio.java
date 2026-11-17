@@ -1,6 +1,6 @@
-package catalogo.servicios;
+package ar.edu.unq.po2.tpIntegrador;
 
-public abstract class Servicio{
+public abstract class Servicio {
     private String nombre;
     private String descripcion;
 
@@ -9,16 +9,19 @@ public abstract class Servicio{
         this.descripcion = descripcion;
     }
 
-
-    public String getNombre(){
+    public String getNombre() {
         return this.nombre;
     }
 
-    public String getDescripcion(){
+    public abstract double getPrecio();
+
+    public String getDescripcion() {
         return this.descripcion;
     }
 
-    public abstract Double getPrecio();
+    public boolean estaDisponible(){
+        return true;            //CAMBIAR; SE DEBE CHEQUEAR SI HAY O NO CUPOS!!!!!!!
+    }
 
     public void reservarCupo(){}
 
@@ -28,5 +31,4 @@ public abstract class Servicio{
 //    public transferir(int monto, date dia){
 //        this.transferenciaProgramada();
 //    }
-
 }
