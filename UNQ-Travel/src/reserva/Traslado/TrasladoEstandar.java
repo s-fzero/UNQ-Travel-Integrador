@@ -9,6 +9,10 @@ public class TrasladoEstandar implements MetodoTraslado {
         this.adapter = adapter;
     }
 
+    public AdapterTrasladoEstandar getAdapter(){
+        return this.adapter;
+    }
+
     @Override
     public double calcularCosto(Reserva r) {
         return adapter.estimarTraslado(r.getCantPasajeros(), r.getDestinoTraslado());
