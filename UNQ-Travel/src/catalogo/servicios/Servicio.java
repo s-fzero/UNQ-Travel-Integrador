@@ -37,6 +37,10 @@ public abstract class Servicio {
         }
     }
 
+    public void devolverCupo(LocalDate fechaDesde, LocalDate fechaHasta){
+        gestorCupo.devolverCupo(fechaDesde,fechaHasta);
+    }
+
 //    public transferir(int monto){
 //        this.transferenciaInmediata();
 //    }

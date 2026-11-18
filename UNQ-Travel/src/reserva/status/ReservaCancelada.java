@@ -9,7 +9,7 @@ public class ReservaCancelada extends ReservaStatus {
 
     @Override
     public void cancelarReserva(Reserva r) {
-
+        
     }
 
     @Override

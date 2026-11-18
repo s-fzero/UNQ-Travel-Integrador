@@ -29,4 +29,11 @@ public class GestorCupo {
     public boolean estaDisponibleEnFechas(Programacion programacion, LocalDate fechaDesde, LocalDate fechaHasta){
         return programacion.getFechaDeInicio().equals(fechaDesde) && programacion.getFechaFinalizacion().equals(fechaHasta);
     }
+
+    public void devolverCupo(LocalDate fechaDesde, LocalDate fechaHasta) {
+        programaciones.stream()
+                .filter(programacion -> this.estaDisponibleEnFechas(programacion,fechaDesde,fechaHasta))
+                .findFirst()
+                .ifPresentOrElse(programacion -> programacion.devolverCupo(),() -> new RuntimeException("Programacion no encontrada"));
+    }
 }

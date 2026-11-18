@@ -82,6 +82,10 @@ public class Reserva {
         this.getServicios().forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin));
     }
 
+    public void devolverCupos(){
+        this.getServicios().forEach(servicio -> servicio.devolverCupo(fechaInicio, fechaFin));
+    }
+
     public double cobrarServicios() {
         return this.getServicios().stream().mapToDouble(servicio -> servicio.getPrecio()).sum();
         //Discutir el tipo de la funcion.

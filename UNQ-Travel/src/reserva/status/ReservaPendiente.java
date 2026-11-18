@@ -13,4 +13,8 @@ public class ReservaPendiente extends ReservaStatus{
         this.cambiarEstado(r, new ReservaConfirmada());
     }
 
+    @Override
+    public void cancelarReserva(Reserva r){
+        this.cambiarEstado(r,new ReservaCancelada());
+    }
 }

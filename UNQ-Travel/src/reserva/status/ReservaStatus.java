@@ -8,6 +8,7 @@ public abstract class ReservaStatus {
     }
     public abstract void procesarReserva(Reserva r);
     public void cancelarReserva(Reserva r){
+        r.devolverCupos();
         this.cambiarEstado(r,new ReservaCancelada());
     }
     public boolean debeEnviarMail() {return false;}

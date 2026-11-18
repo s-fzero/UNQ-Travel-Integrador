@@ -22,6 +22,13 @@ public final class Programacion {
     }
 
     public void reservarCupo() {
-
+        this.cantCuposDisponibles--;
     }
+    public void devolverCupo(){
+        this.cantCuposDisponibles++;
+    }
+    public Integer getCantCuposDisponibles() {
+        return cantCuposDisponibles;
+    }
+
 }
