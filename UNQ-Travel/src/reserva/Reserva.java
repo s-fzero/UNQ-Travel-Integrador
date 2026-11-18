@@ -68,6 +68,7 @@ public class Reserva {
     public List<Servicio> getServicios() { return this.servicios; }
     private List<Servicio> getHistorialServicios() { return this.historialServicios; }
     public ReservaStatus getStatus() { return this.status;}
+    public List<Adjunto> getAdjuntos() { return this.adjuntos;}
     //
 
     public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
