@@ -1,7 +1,9 @@
 package reporte;
 
-//Patron Visitor
-//Rol: Element
-public interface Reporte {
-    public void aceptar(Visitante v);
+import catalogo.Catalogo;
+
+public abstract class Reporte {
+    private Catalogo catalogo;
+    public abstract void aceptar(Exportador v);
+    public Reporte(Catalogo catalogo) { this.catalogo = catalogo; }
 }

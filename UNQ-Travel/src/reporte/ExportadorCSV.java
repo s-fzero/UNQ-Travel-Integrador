@@ -2,7 +2,7 @@ package reporte;
 
 //Patron Visitor
 //Rol: Concrete Visitor
-public class ExportadorCSV implements Visitante{
+public class ExportadorCSV implements Exportador {
     @Override
     public void visitarMasReservados(MasReservados m) {
 
