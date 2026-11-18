@@ -1,4 +1,4 @@
-package reserva.Traslado;
+package reserva.traslado;
 
 public class PlataformaVIP {
 }

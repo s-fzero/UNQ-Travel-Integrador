@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.servicios;
 
 public abstract class Servicio {
     private String nombre;

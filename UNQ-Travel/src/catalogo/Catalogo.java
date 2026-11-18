@@ -1,11 +1,8 @@
-package ar.edu.unq.po2.tpIntegrador;
-//ARRIBA MÍO; ABAJO COPIADO
 package catalogo;
-
 import catalogo.servicios.Servicio;
-//ESTOS DOS IMPORT LOS COMPARTIMOS :D
 import java.util.ArrayList;
 import java.util.List;
+import catalogo.criterios.*;
 
 public class Catalogo {
     private List<Servicio> services;

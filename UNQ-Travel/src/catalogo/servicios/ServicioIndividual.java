@@ -1,10 +1,7 @@
-package ar.edu.unq.po2.tpIntegrador;
-//ARRIBA LO MÍO; ABAJO COPIADO
 package catalogo.servicios;
 
 import catalogo.atributos.AtributoDinamico;
 
-//ESTE IMPORT LO COMPARTIMOS :D
 import java.util.List;
 
 public class ServicioIndividual extends Servicio {
