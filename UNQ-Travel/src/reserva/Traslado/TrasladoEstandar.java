@@ -1,6 +1,6 @@
-package ar.edu.unq.po2.tpIntegrador;
+package reserva.Traslado;
 
-import ar.edu.unq.po2.tpIntegrador.reserva.status.Reserva;
+import reserva.Reserva;
 
 public class TrasladoEstandar implements MetodoTraslado {
     private AdapterTrasladoEstandar adapter;
