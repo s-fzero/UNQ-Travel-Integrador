@@ -13,6 +13,7 @@ public class ReservaCheckIn extends ReservaStatus {
     }
     @Override
     public void cancelarReserva(Reserva r) {
+        r.devolverCupos();
         r.reembolsarReserva();
         super.cancelarReserva(r);
     }
