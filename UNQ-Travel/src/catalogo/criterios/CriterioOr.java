@@ -1,4 +1,4 @@
-package catalogo.Criterios;
+package catalogo.criterios;
 
 import java.util.ArrayList;
 import java.util.List;

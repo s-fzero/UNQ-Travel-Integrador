@@ -1,4 +1,6 @@
-package catalogo.Criterios;
+package catalogo.criterios;
+
+import catalogo.servicios.Servicio;
 
 public class CriterioNot implements CriterioBusqueda{
     private CriterioBusqueda criterio;

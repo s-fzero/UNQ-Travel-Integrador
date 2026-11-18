@@ -1,8 +1,9 @@
 package catalogo;
+
+import catalogo.criterios.CriterioBusqueda;
 import catalogo.servicios.Servicio;
 import java.util.ArrayList;
 import java.util.List;
-import catalogo.criterios.*;
 
 public class Catalogo {
     private List<Servicio> services;
@@ -20,7 +21,6 @@ public class Catalogo {
     }
 
     public void eliminarItem(Servicio servicio){
-        //this.getServicios().removeIf(item -> item.getNombre().equals(servicio.getNombre()));
         this.getServicios().remove(servicio);
     }
 

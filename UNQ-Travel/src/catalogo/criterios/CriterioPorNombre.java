@@ -1,4 +1,4 @@
-package catalogo.Criterios;
+package catalogo.criterios;
 
 import catalogo.servicios.Servicio;
 
