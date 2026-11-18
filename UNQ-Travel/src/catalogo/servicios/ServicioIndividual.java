@@ -1,5 +1,3 @@
-package ar.edu.unq.po2.tpIntegrador;
-//ARRIBA LO MÍO; ABAJO COPIADO
 package catalogo.servicios;
 
 import catalogo.atributos.AtributoDinamico;

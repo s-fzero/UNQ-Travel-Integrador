@@ -1,7 +1,6 @@
-package ar.edu.unq.po2.tpIntegrador;
-//ARRIBA MÍO; ABAJO COPIADO
 package catalogo;
 
+import catalogo.criterios.CriterioBusqueda;
 import catalogo.servicios.Servicio;
 //ESTOS DOS IMPORT LOS COMPARTIMOS :D
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ public class Catalogo {
     }
 
     public void eliminarItem(Servicio servicio){
-        //this.getServicios().removeIf(item -> item.getNombre().equals(servicio.getNombre()));
         this.getServicios().remove(servicio);
     }
 

@@ -1,6 +1,7 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.criterios;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import catalogo.servicios.Servicio;
+import catalogo.servicios.ServicioIndividual;
 
 public class CriterioPorCategoria implements CriterioBusqueda {
     private String categoria;

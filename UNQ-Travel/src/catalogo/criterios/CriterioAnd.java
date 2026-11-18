@@ -1,4 +1,6 @@
-package reserva.Criterios;
+package catalogo.criterios;
+
+import catalogo.servicios.Servicio;
 
 import java.util.ArrayList;
 import java.util.List;

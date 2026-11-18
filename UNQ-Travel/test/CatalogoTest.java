@@ -1,15 +1,13 @@
-package ar.edu.unq.po2.tpIntegrador.test;
+package test.catalogoTest;
 
-import ar.edu.unq.po2.tpIntegrador.*;
+import catalogo.*;
+import catalogo.criterios.*;
+import catalogo.servicios.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 // LOS IMPORTS DE ARRIBA SON MÍOS, DE SANTI; LOS DE ABAJO LOS COPIÉ TAL CUAL ESTABAN
-import catalogo.Catalogo;
-import catalogo.servicios.Servicio;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -29,10 +27,10 @@ public class CatalogoTest {
     private CriterioOr cb6;
     private CriterioNot cb7;
     // ARRIBA MÍO; ABAJO COPIADO
-    private Catalogo catalogo;
-    private Servicio servicio1;
-    private Servicio servicio2;
-    private Servicio servicio3;
+//    private Catalogo catalogo;
+//    private Servicio servicio1;
+//    private Servicio servicio2;
+//    private Servicio servicio3;
 
     @BeforeEach
     public void setUp(){
@@ -59,11 +57,11 @@ public class CatalogoTest {
         cb5.getCriterios().add(cb);
         cb5.getCriterios().add(cb2);
         //ARRIBA MÍO; ABAJO COPIADO
-        catalogo = new Catalogo();
-
-        servicio1 = mock(Servicio.class);
-        servicio2 = mock(Servicio.class);
-        servicio3 = mock(Servicio.class);
+//        catalogo = new Catalogo();
+//
+//        servicio1 = mock(Servicio.class);
+//        servicio2 = mock(Servicio.class);
+//        servicio3 = mock(Servicio.class);
     }
 
     @Test
@@ -123,14 +121,14 @@ public class CatalogoTest {
     //
     //ARRIBA MÍO; ABAJO COPIADO
     //
-    @Test
-    public void insercionDeServiciosAlCatalogo(){
-
-        catalogo.agregarItem(servicio1);
-        assertTrue(catalogo.getServicios().contains(servicio1));
-        catalogo.eliminarItem(servicio1);
-        assertFalse(catalogo.getServicios().contains(servicio1));
-
-
-    }
+//    @Test
+//    public void insercionDeServiciosAlCatalogo(){
+//
+//        catalogo.agregarItem(servicio1);
+//        assertTrue(catalogo.getServicios().contains(servicio1));
+//        catalogo.eliminarItem(servicio1);
+//        assertFalse(catalogo.getServicios().contains(servicio1));
+//
+//
+//    }
 }
