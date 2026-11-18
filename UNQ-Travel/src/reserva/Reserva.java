@@ -5,6 +5,7 @@ import reserva.notificacion.Adjunto;
 import reserva.notificacion.Subsistema;
 
 import reserva.status.*;
+import reserva.status.excepcionStatus.OperacionDeEstadoInvalida;
 import reserva.traslado.MetodoTraslado;
 
 import java.time.LocalDate;
@@ -71,11 +72,22 @@ public class Reserva {
 
     public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
 
-    public void procesarReserva(){ this.status.procesarReserva(this); }
+    public void procesarReserva(){
+        this.notificarSubsistemas();
+        try {
+            this.status.procesarReserva(this);
+        } catch (OperacionDeEstadoInvalida e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 
     public void cancelarReserva(){
         this.notificarSubsistemas();
-        this.status.cancelarReserva(this);
+        try {
+            this.status.cancelarReserva(this);
+        } catch (OperacionDeEstadoInvalida e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public void reservarCupos() {

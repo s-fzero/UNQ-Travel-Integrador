@@ -1,6 +1,7 @@
 package reserva.status;
 
 import reserva.Reserva;
+import reserva.status.excepcionStatus.OperacionDeEstadoInvalida;
 
 public class ReservaFinalizada extends ReservaStatus{
     public ReservaFinalizada(){
@@ -9,12 +10,12 @@ public class ReservaFinalizada extends ReservaStatus{
 
     @Override
     public void procesarReserva(Reserva r) {
-
+        throw new OperacionDeEstadoInvalida("No puede procesarse una reserva ya finalizada.");
     }
 
     @Override
     public void cancelarReserva(Reserva r) {
-
+        throw new OperacionDeEstadoInvalida("No puede cancelarse una reserva ya finalizada.");
     }
 
     @Override
