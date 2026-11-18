@@ -31,7 +31,7 @@ public abstract class Servicio {
         gestorCupo.agregarProgramacion(fechaDeIncio,fechaFinalizacion,cantCupos);
     }
 
-    public void reservarCupo(LocalDate fechaDesde,LocalDate fechaHasta){
+    public void reservarCupo(LocalDate fechaDesde, LocalDate fechaHasta){
         if (this.estaDisponible(fechaDesde,fechaHasta)){
             gestorCupo.reservarCupo(fechaDesde,fechaHasta);
         }

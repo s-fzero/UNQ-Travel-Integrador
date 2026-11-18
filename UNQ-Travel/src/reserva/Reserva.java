@@ -15,6 +15,8 @@ public class Reserva {
     private String correo;
     private int cantPasajeros;
     private LocalDate fechaTraslado;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private String destinoTraslado;
     private MetodoTraslado metodoTraslado;
 
@@ -27,6 +29,8 @@ public class Reserva {
     public Reserva(String correo,
                    int cantPasajeros,
                    LocalDate fechaTraslado,
+                   LocalDate fechaInicio,
+                   LocalDate fechaFin,
                    String destinoTraslado,
                    MetodoTraslado metodoTraslado) {
         this.correo = correo;
@@ -34,6 +38,8 @@ public class Reserva {
         this.fechaTraslado = fechaTraslado;
         this.destinoTraslado = destinoTraslado;
         this.metodoTraslado = metodoTraslado;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     public int getCantPasajeros() {
@@ -73,7 +79,7 @@ public class Reserva {
     }
 
     public void reservarCupos() {
-        this.getServicios().forEach(Servicio::reservarCupo);
+        this.getServicios().forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin));
     }
 
     public double cobrarServicios() {
