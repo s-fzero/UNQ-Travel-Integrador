@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.Criterios;
+
+import catalogo.servicios.Servicio;
 
 public class CriterioPorNombre implements CriterioBusqueda{
     private String nombre;

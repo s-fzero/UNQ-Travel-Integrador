@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.Criterios;
 
 import java.util.ArrayList;
 import java.util.List;

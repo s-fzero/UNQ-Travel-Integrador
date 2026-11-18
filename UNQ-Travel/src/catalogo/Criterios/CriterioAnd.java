@@ -1,4 +1,4 @@
-package reserva.Criterios;
+package catalogo.Criterios;
 
 import java.util.ArrayList;
 import java.util.List;

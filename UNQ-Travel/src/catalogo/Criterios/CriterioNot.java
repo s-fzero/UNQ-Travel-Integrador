@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.Criterios;
 
 public class CriterioNot implements CriterioBusqueda{
     private CriterioBusqueda criterio;

@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tpIntegrador;
+package catalogo.Criterios;
 
 public class CriterioPorDisponibilidad implements CriterioBusqueda{
     public boolean cumple(Servicio s){
