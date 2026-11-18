@@ -21,4 +21,5 @@ public class ReservaFinalizada extends ReservaStatus{
     public boolean debeEnviarMail() { return true;}
     public boolean debeGenerarComprobante() { return true;}
     public boolean debeGenerarVoucher() { return true;}
+    public boolean estaFinalizada() { return true; }
 }
