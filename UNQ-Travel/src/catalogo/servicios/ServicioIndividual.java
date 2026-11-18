@@ -1,10 +1,13 @@
+package ar.edu.unq.po2.tpIntegrador;
+//ARRIBA LO MÍO; ABAJO COPIADO
 package catalogo.servicios;
 
 import catalogo.atributos.AtributoDinamico;
 
+//ESTE IMPORT LO COMPARTIMOS :D
 import java.util.List;
 
-public class ServicioIndividual extends Servicio{
+public class ServicioIndividual extends Servicio {
     private Integer codigoReserva;
     private Double precioBase;
     private String operador;
@@ -12,9 +15,9 @@ public class ServicioIndividual extends Servicio{
     private List<AtributoDinamico> atributos;
 
 
-    public ServicioIndividual(String nombre,String descripcion,Double precioBase ,Integer codigoReserva, String operador, String categoria) {
-        super(nombre,descripcion);
-        this.precioBase    = precioBase;
+    public ServicioIndividual(String nombre, String descripcion, Double precioBase , Integer codigoReserva, String operador, String categoria) {
+        super(nombre, descripcion);
+        this.precioBase = precioBase;
         this.codigoReserva = codigoReserva;
         this.operador      = operador;
         this.categoria     = categoria;
@@ -24,7 +27,7 @@ public class ServicioIndividual extends Servicio{
         return this.atributos;
     }
 
-    public Double getPrecio(){
+    public double getPrecio(){
         return this.precioBase;
     }
 

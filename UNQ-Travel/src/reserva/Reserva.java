@@ -5,9 +5,18 @@ import reserva.notificacion.Adjunto;
 import reserva.notificacion.Subsistema;
 import reserva.status.ReservaPendiente;
 import reserva.status.ReservaStatus;
+//ARRIBA COPIADO; ABAJO MÍO
+package ar.edu.unq.po2.tpIntegrador.reserva;
 
+import ar.edu.unq.po2.tpIntegrador.MetodoTraslado;
+import ar.edu.unq.po2.tpIntegrador.Servicio;
+import ar.edu.unq.po2.tpIntegrador.reserva.notificacion.Adjunto;
+import ar.edu.unq.po2.tpIntegrador.reserva.notificacion.Subsistema;
+import ar.edu.unq.po2.tpIntegrador.reserva.status.ReservaPendiente;
+import ar.edu.unq.po2.tpIntegrador.reserva.status.ReservaStatus;
+
+//ESTE LO COMPARTIMOS LOS DOS :D
 import java.util.List;
-
 
 public class Reserva {
     private String correo;
@@ -16,6 +25,40 @@ public class Reserva {
     private List<Subsistema> subsistemas;      // Lista de observers
     private List<Adjunto> adjuntos;            // Para guardar los archivos adjuntos que recibe de subsistemas
     private ReservaStatus status;              // Estado de la reserva
+    private int cantPasajeros;
+    private LocalDate fechaTraslado;
+    private String destinoTraslado;
+    private MetodoTraslado metodoTraslado;
+
+    public Reserva(int cantPasajeros,
+                   LocalDate fechaTraslado,
+                   String destinoTraslado,
+                   MetodoTraslado metodoTraslado) {
+        this.cantPasajeros = cantPasajeros;
+        this.fechaTraslado = fechaTraslado;
+        this.destinoTraslado = destinoTraslado;
+        this.metodoTraslado = metodoTraslado;
+    }
+
+    public int getCantPasajeros() {
+        return cantPasajeros;
+    }
+
+    public LocalDate getFechaTraslado() {
+        return fechaTraslado;
+    }
+
+    public String getDestinoTraslado() {
+        return destinoTraslado;
+    }
+
+    public MetodoTraslado getMetodoTraslado() {
+        return metodoTraslado;
+    }
+
+    public void setMetodoTraslado(MetodoTraslado metodoTraslado) {
+        this.metodoTraslado = metodoTraslado;
+    }
 
     public Reserva() {
         this.status = new ReservaPendiente();  // La reserva empieza en estado "Solicitud pendiente"
