@@ -80,9 +80,6 @@ class ReservaTest {
     @Test
     void reservaSeInicializaCorrectamente() {
 
-        // Setup
-
-        // Exercise
         String correo = reserva.getCorreo();
         int pasajeros = reserva.getCantPasajeros();
 
@@ -90,7 +87,6 @@ class ReservaTest {
 
         String destino = reserva.getDestinoTraslado();
 
-        // Verify
         assertEquals("correo@gmail.com", correo);
         assertEquals(2, pasajeros);
         assertEquals(fechaTraslado, traslado);
@@ -112,12 +108,10 @@ class ReservaTest {
     @Test
     void reservarCuposDisminuyeLaCantidadDeCuposDisponibles() {
 
-        // Setup
         servicio.agregarProgramacion(fechaInicio, fechaFin, 2);
 
         reserva.agregarServicio(servicio);
 
-        // Exercise
         reserva.reservarCupos();
 
         // Debe seguir disponible porque reserva 2 y tiene 5 cupos
@@ -129,42 +123,34 @@ class ReservaTest {
     @Test
     void devolverCuposIncrementaLaCantidadDeCuposDisponibles() {
 
-        // Setup
         servicio.agregarProgramacion(fechaInicio, fechaFin, 5);
 
         reserva.agregarServicio(servicio);
 
         reserva.reservarCupos();
 
-        // Exercise
         reserva.devolverCupos();
 
-        // Verify
         assertEquals(5, servicio.cuposDisponibles(fechaInicio, fechaFin));
     }
 
     @Test
     void reservarCuposReservaTodosLosServicios() {
 
-        // Setup
         servicio.agregarProgramacion(fechaInicio, fechaFin, 5);
         otroServicio.agregarProgramacion(fechaInicio, fechaFin, 8);
 
         reserva.agregarServicio(servicio);
         reserva.agregarServicio(otroServicio);
 
-        // Exercise
         reserva.reservarCupos();
 
-        // Verify
         assertEquals(3, servicio.cuposDisponibles(fechaInicio, fechaFin));
         assertEquals(6, otroServicio.cuposDisponibles(fechaInicio, fechaFin));
     }
 
     @Test
     void devolverCuposDevuelveTodosLosServicios() {
-
-        // Setup
         servicio.agregarProgramacion(fechaInicio, fechaFin, 5);
         otroServicio.agregarProgramacion(fechaInicio, fechaFin, 8);
 
@@ -173,10 +159,8 @@ class ReservaTest {
 
         reserva.reservarCupos();
 
-        // Exercise
         reserva.devolverCupos();
 
-        // Verify
         assertEquals(5, servicio.cuposDisponibles(fechaInicio, fechaFin));
         assertEquals(8, otroServicio.cuposDisponibles(fechaInicio, fechaFin));
     }
@@ -184,40 +168,28 @@ class ReservaTest {
     @Test
     void cobrarServiciosDevuelveLaSumaDeSusPrecios() {
 
-        // Setup
         reserva.agregarServicio(servicio);
         reserva.getServicios().add(otroServicio);
 
-        // Exercise
         double total = reserva.cobrarServicios();
 
-        // Verify
         assertEquals(4000.0, total, 0.001);
     }
 
     @Test
     void cobrarServiciosSinServiciosDevuelveCero() {
-
-        // Setup
-
-        // Exercise
         double total = reserva.cobrarServicios();
-
-        // Verify
         assertEquals(0.0, total, 0.001);
     }
 
     @Test
     void reembolsarReservaDevuelveElTotalDeLosServicios() {
 
-        // Setup
         reserva.agregarServicio(servicio);
         reserva.getServicios().add(otroServicio);
 
-        // Exercise
         double total = reserva.reembolsarReserva();
 
-        // Verify
         assertEquals(4000.0, total, 0.001);
     }
 
@@ -233,7 +205,7 @@ class ReservaTest {
 
     @Test
     void testDisfrutarServicioValidoMueveServicioAHistorial(){
-        reserva.agregarServicio(servicio); // ajustá al nombre real de tu método si tiene otro
+        reserva.agregarServicio(servicio);
         reserva.procesarReserva(); //Confirmada
         reserva.procesarReserva(); //Check in
         reserva.procesarReserva(); //EN CURSO
