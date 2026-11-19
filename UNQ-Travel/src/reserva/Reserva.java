@@ -92,11 +92,11 @@ public class Reserva {
     }
 
     public void reservarCupos() {
-        this.getServicios().forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin));
+        this.servicios.forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin));
     }
 
     public void devolverCupos(){
-        this.getServicios().forEach(servicio -> servicio.devolverCupo(fechaInicio, fechaFin));
+        this.servicios.forEach(servicio -> servicio.devolverCupo(fechaInicio, fechaFin));
     }
 
     public double cobrarServicios() {
