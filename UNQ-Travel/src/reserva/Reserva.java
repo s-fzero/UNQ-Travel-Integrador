@@ -74,21 +74,21 @@ public class Reserva {
     public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
 
     public void procesarReserva(){
-        this.notificarSubsistemas();
         try {
             this.status.procesarReserva(this);
         } catch (OperacionDeEstadoInvalida e) {
             System.out.println("Error: " + e.getMessage());
         }
+        this.notificarSubsistemas();
     }
 
     public void cancelarReserva(){
-        this.notificarSubsistemas();
         try {
             this.status.cancelarReserva(this);
         } catch (OperacionDeEstadoInvalida e) {
             System.out.println("Error: " + e.getMessage());
         }
+        this.notificarSubsistemas();
     }
 
     public void reservarCupos() {
