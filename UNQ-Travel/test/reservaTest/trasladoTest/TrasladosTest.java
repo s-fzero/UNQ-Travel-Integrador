@@ -1,9 +1,10 @@
-package ar.edu.unq.po2.tpIntegrador.test;
+package reservaTest.trasladoTest;
 
-import ar.edu.unq.po2.tpIntegrador.*;
-import ar.edu.unq.po2.tpIntegrador.reserva.status.Reserva;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import reserva.notificacion.*;
+import reserva.traslado.*;
+import reserva.*;
 
 import java.time.LocalDate;
 
@@ -25,9 +26,27 @@ public class TrasladosTest {
         te = new TrasladoEstandar();
         tv = new TrasladoVIP(0.10, 500d);
         tpe = new TrasladoPuntoEncuentro("Leeds", 0);
-        r = new Reserva("York", 3, LocalDate.of(1987, 10, 31), te);
-        r2 = new Reserva("Liverpool", 5, LocalDate.of(2015, 10, 31), tv);
-        r3 = new Reserva("Manchester", 1, LocalDate.of(2008, 10, 31), tpe);
+        r = new Reserva("cliente1@gmail",
+                3,
+                LocalDate.of(1987, 10, 31),
+                LocalDate.of(1987, 10, 31),
+                LocalDate.of(1987, 11, 3),
+                "York",
+                te);
+        r2 = new Reserva("cliente2@gmail",
+                5,
+                LocalDate.of(2015, 10, 31),
+                LocalDate.of(2015, 10, 31),
+                LocalDate.of(2015, 11, 3),
+                "Liverpool",
+                tv);
+        r3 = new Reserva("cliente2@gmail",
+                1,
+                LocalDate.of(2008, 10, 31),
+                LocalDate.of(2008, 10, 31),
+                LocalDate.of(2008, 11, 3),
+                "Manchester",
+                tpe);
         ate = new AdapterTrasladoEstandar();
         pt = new PlataformaTransporte();
         te.setAdapter(ate);
