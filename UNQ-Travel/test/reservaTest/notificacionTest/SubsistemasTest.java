@@ -45,6 +45,30 @@ class SubsistemasTest {
     }
 
     @Test
+    void testNotificadorEmailActuaEnCurso() {
+        reserva.agregarSubsistema(notificadorEmail);        //Se agrega el notificador
+        List<Adjunto> adjuntos = reserva.getAdjuntos();
+        assertTrue(reserva.getAdjuntos().isEmpty());             //Cuando se crea la reserva no tiene ningun adjunto
+        reserva.procesarReserva();                               //Se procesa, pasa a Confirmada porque empieza en Pendiente
+        reserva.procesarReserva();                               //Pasa a Check in
+        reserva.procesarReserva();                               //Pasa a EN CURSO
+        assertEquals(2, reserva.getAdjuntos().size());  //Si hay dos adjuntos, significa que se envió el mail confirmado y el mail en curso
+    }
+
+    @Test
+    void testNotificadorEmailActuaFinalizada() {
+        reserva.agregarSubsistema(notificadorEmail);        //Se agrega el notificador
+        List<Adjunto> adjuntos = reserva.getAdjuntos();
+        assertTrue(reserva.getAdjuntos().isEmpty());             //Cuando se crea la reserva no tiene ningun adjunto
+        reserva.procesarReserva();                               //Se procesa, pasa a Confirmada porque empieza en Pendiente
+        reserva.procesarReserva();                               //Pasa a Check in
+        reserva.procesarReserva();                               //Pasa a en curso
+        reserva.procesarReserva();                               //Pasa a FINALIZADA
+        assertEquals(3, reserva.getAdjuntos().size());  //Si hay tres adjuntos, significa que se envió el mail confirmado, el mail en curso y el mail finalizada.
+    }
+
+
+    @Test
     void testGeneradorVoucherYComprobanteActuaEnFinalizada() {
         reserva.agregarSubsistema(generadorVoucher);
         List<Adjunto> adjuntos = reserva.getAdjuntos();
@@ -73,7 +97,8 @@ class SubsistemasTest {
         reserva.agregarSubsistema(fidelizacion);
         List<Adjunto> adjuntos = reserva.getAdjuntos();
         assertTrue(reserva.getAdjuntos().isEmpty());
-        reserva.cancelarReserva();
+        reserva.procesarReserva(); // Aqui no actua
+        reserva.cancelarReserva(); // Actua aca
         assertFalse(reserva.getAdjuntos().isEmpty(), "La lista de adjuntos no debería estar vacía");
         assertInstanceOf(Cupon.class, reserva.getAdjuntos().getFirst());
     }
