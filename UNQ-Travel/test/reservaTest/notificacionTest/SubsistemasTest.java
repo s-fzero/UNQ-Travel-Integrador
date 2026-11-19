@@ -35,6 +35,45 @@ class SubsistemasTest {
     }
 
     @Test
+    void agregarSubsistemaPermiteRecibirNotificaciones() {
+
+        // Setup
+        NotificadorMail notificador = new NotificadorMail();
+
+        reserva.agregarSubsistema(notificador);
+        reserva.cambiarEstado(new ReservaConfirmada());
+
+        // Exercise
+        reserva.notificarSubsistemas();
+
+        // Verify
+        assertEquals(1, reserva.getAdjuntos().size());
+
+        assertEquals(
+                "Estado de su reserva",
+                reserva.getAdjuntos().get(0).getTitulo()
+        );
+    }
+
+    @Test
+    void eliminarSubsistemaEvitaQueRecibaNotificaciones() {
+
+        // Setup
+        NotificadorMail notificador = new NotificadorMail();
+
+        reserva.agregarSubsistema(notificador);
+        reserva.eliminarSubsistema(notificador);
+
+        reserva.cambiarEstado(new ReservaConfirmada());
+
+        // Exercise
+        reserva.notificarSubsistemas();
+
+        // Verify
+        assertTrue(reserva.getAdjuntos().isEmpty());
+    }
+
+    @Test
     void testNotificadorEmailActuaEnConfirmada() {
         reserva.agregarSubsistema(notificadorEmail);        //Se agrega el notificador
         List<Adjunto> adjuntos = reserva.getAdjuntos();

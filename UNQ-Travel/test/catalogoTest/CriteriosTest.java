@@ -1,8 +1,10 @@
-package ar.edu.unq.po2.tpIntegrador.test;
+package catalogoTest;
 
-import ar.edu.unq.po2.tpIntegrador.*;
+import catalogo.criterios.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +23,8 @@ public class CriteriosTest {
         cb = new CriterioPorNombre("Poet");
         cb2 = new CriterioPorPrecio(50000d);
         cb3 = new CriterioPorCategoria("Limpieza");
-        cb4 = new CriterioPorDisponibilidad();
+        cb4 = new CriterioPorDisponibilidad(LocalDate.of(2015, 10, 31),
+                LocalDate.of(2015, 11, 3), 5);
         cb5 = new CriterioAnd();
         cb6 = new CriterioOr();
         cb7 = new CriterioNot(cb2);

@@ -8,7 +8,6 @@ import java.util.List;
 public class Buscador {
     private CriterioBusqueda criterio;
     private Catalogo catalogo;
-    private List<Servicio> servicios = catalogo.getServicios();
 
     public Buscador(CriterioBusqueda criterio, Catalogo catalogo) {
         this.criterio = criterio;
@@ -16,6 +15,8 @@ public class Buscador {
     }
 
     public List<Servicio> buscarServicios() {
-        return servicios.stream().filter(criterio::cumple).toList();
+        return catalogo.getServicios().stream().filter(criterio::cumple).toList();
     }
+
+    public void setCriterio(CriterioBusqueda c){criterio = c;}
 }

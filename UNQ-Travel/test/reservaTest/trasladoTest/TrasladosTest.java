@@ -8,8 +8,7 @@ import reserva.*;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TrasladosTest {
     private TrasladoEstandar te;
@@ -120,5 +119,11 @@ public class TrasladosTest {
     @Test
     public void test013_UnTrasladoPorPuntoDeEncuentroSabeSiTieneDisponibilidad(){
         assertFalse(tpe.hayDisponibilidad(r3));
+    }
+
+    @Test
+    public void cambiarTrasladoEstandarAVip(){
+        r.setMetodoTraslado(tv);
+        assertInstanceOf(TrasladoVIP.class, r.getMetodoTraslado());
     }
 }

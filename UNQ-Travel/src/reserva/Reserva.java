@@ -43,33 +43,20 @@ public class Reserva {
         this.fechaFin = fechaFin;
     }
 
-    public int getCantPasajeros() {
-        return cantPasajeros;
-    }
-
-    public LocalDate getFechaTraslado() {
-        return fechaTraslado;
-    }
-
-    public String getDestinoTraslado() {
-        return destinoTraslado;
-    }
-
-    public MetodoTraslado getMetodoTraslado() {
-        return metodoTraslado;
-    }
-
-    public void setMetodoTraslado(MetodoTraslado metodoTraslado) {
-        this.metodoTraslado = metodoTraslado;
-    }
 
     // GETTERS
     public String getCorreo() { return this.correo; }
     public List<Servicio> getServicios() { return this.servicios; }
-    private List<Servicio> getHistorialServicios() { return this.historialServicios; }
+    public List<Servicio> getHistorialServicios() { return this.historialServicios; }
     public ReservaStatus getStatus() { return this.status;}
     public List<Adjunto> getAdjuntos() { return this.adjuntos;}
+    public int getCantPasajeros() {return cantPasajeros;}
+    public LocalDate getFechaTraslado() {return fechaTraslado;}
+    public String getDestinoTraslado() {return destinoTraslado;}
+    public MetodoTraslado getMetodoTraslado() {return metodoTraslado;}
     //
+
+    public void setMetodoTraslado(MetodoTraslado metodoTraslado) { this.metodoTraslado = metodoTraslado;}
 
     public void cambiarEstado(ReservaStatus nuevoEstado) { this.status = nuevoEstado; }
 
@@ -92,11 +79,11 @@ public class Reserva {
     }
 
     public void reservarCupos() {
-        this.servicios.forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin));
+        this.servicios.forEach(servicio -> servicio.reservarCupo(fechaInicio, fechaFin, cantPasajeros));
     }
 
     public void devolverCupos(){
-        this.servicios.forEach(servicio -> servicio.devolverCupo(fechaInicio, fechaFin));
+        this.servicios.forEach(servicio -> servicio.devolverCupo(fechaInicio, fechaFin, cantPasajeros));
     }
 
     public double cobrarServicios() {
@@ -113,19 +100,33 @@ public class Reserva {
         return this.cobrarServicios(); //Discutir dsp
     }
 
+    public void disfrutarServicio(Servicio s) throws OperacionDeEstadoInvalida{
+        if(status.puedeDisfrutar() && servicios.contains(s)) {
+            servicios.remove(s);
+            historialServicios.add(s);
+        }
+        else { throw new OperacionDeEstadoInvalida("Error: No se puede disfrutar"); }
+    }
+
+    public boolean todosFueronDisfrutados(){
+        return servicios.isEmpty(); //que este vacio significa que se pasaron todos al historial.
+        //se ejecuta solo cuando se sabe que hubieron servicios
+    }
+
+    //OBSERVER//
     public void notificarSubsistemas(){
         for(Subsistema s:subsistemas){
             s.actualizar(this);
         }
     }
-
     public void agregarSubsistema(Subsistema s){
         this.subsistemas.add(s);
     }
-
     public void eliminarSubsistema(Subsistema s){
         this.subsistemas.remove(s);
     }
+    ///////////
 
+    public void agregarServicio(Servicio s){ this.servicios.add(s); }
     public void agregarAdjunto(Adjunto a){ this.adjuntos.add(a);}
 }

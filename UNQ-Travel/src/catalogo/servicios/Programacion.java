@@ -21,11 +21,11 @@ public final class Programacion {
         return fechaFinalizacion;
     }
 
-    public void reservarCupo() {
-        this.cantCuposDisponibles--;
+    public void reservarCupo(int cantCupos) {
+        this.cantCuposDisponibles -= cantCupos;
     }
-    public void devolverCupo(){
-        this.cantCuposDisponibles++;
+    public void devolverCupo(int cantCupos){
+        this.cantCuposDisponibles += cantCupos;
     }
     public Integer getCantCuposDisponibles() {
         return cantCuposDisponibles;

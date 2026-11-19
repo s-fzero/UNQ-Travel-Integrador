@@ -23,17 +23,5 @@ public class Catalogo {
     public void eliminarItem(Servicio servicio){
         this.getServicios().remove(servicio);
     }
-
-    public List<Servicio> buscarServicio(CriterioBusqueda cb) {
-        return services.stream().filter(cb::cumple).toList();
-        //equivalente a:
-        //List<Servicio> servicios = new ArrayList<>();
-        //for(s : services){
-        //  if(cb.cumple(s){
-        //    servicios.add(s);
-        //  }
-        //}
-        //return servicios;
-    }
 }
 

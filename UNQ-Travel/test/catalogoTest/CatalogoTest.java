@@ -5,6 +5,8 @@ import catalogo.criterios.*;
 import catalogo.servicios.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 // LOS IMPORTS DE ARRIBA SON MÍOS, DE SANTI; LOS DE ABAJO LOS COPIÉ TAL CUAL ESTABAN
@@ -15,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CatalogoTest {
     private Catalogo catalogo;
+    private Buscador buscador;
     private ServicioIndividual s1;
     private ServicioIndividual s2;
     private ServicioIndividual s3;
@@ -48,7 +51,8 @@ public class CatalogoTest {
         cb = new CriterioPorNombre("Noche de Hotel Central");
         cb2 = new CriterioPorPrecio(10000d);
         cb3 = new CriterioPorCategoria("Alojamiento");
-        cb4 = new CriterioPorDisponibilidad();
+        cb4 = new CriterioPorDisponibilidad(LocalDate.of(2015, 10, 31),
+                LocalDate.of(2015, 11, 3), 5);
         cb5 = new CriterioAnd();
         cb6 = new CriterioOr();
         cb7 = new CriterioNot(cb2);
@@ -56,53 +60,57 @@ public class CatalogoTest {
         cb6.getCriterios().add(cb2);
         cb5.getCriterios().add(cb);
         cb5.getCriterios().add(cb2);
-        //ARRIBA MÍO; ABAJO COPIADO
-//        catalogo = new Catalogo();
-//
-//        servicio1 = mock(Servicio.class);
-//        servicio2 = mock(Servicio.class);
-//        servicio3 = mock(Servicio.class);
+        buscador = new Buscador(cb, catalogo);
+
+        s1.agregarProgramacion(LocalDate.of(2015, 10, 31),
+                LocalDate.of(2015, 11, 3), 5);
     }
 
     @Test
     public void test001_SePuedeFiltrarUnCatalogoPorNombre(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(1, listaFiltrada.size());
     }
 
     @Test
     public void test002_SePuedeFiltrarUnCatalogoPorPrecioMaximo(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb2);
+        buscador.setCriterio(cb2);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(2, listaFiltrada.size());
     }
 
     @Test
     public void test003_SePuedeFiltrarUnCatalogoPorCategoria(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb3);
+        buscador.setCriterio(cb3);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(1, listaFiltrada.size());
     }
 
     @Test
     public void test004_SePuedeFiltrarUnCatalogoPorDisponibilidad(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb4);
-        assertEquals(4, listaFiltrada.size());
+        buscador.setCriterio(cb4);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
+        assertEquals(1, listaFiltrada.size());
     }
 
     @Test
     public void test005_SePuedeFiltrarUnCatalogoPorMasDeUnaCondicionALaVez(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb5);
+        buscador.setCriterio(cb5);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(0, listaFiltrada.size());
     }
 
     @Test
     public void test006_SePuedeFiltrarUnCatalogoSiSeCumpleAlMenosUnaEntreVariasCondiciones(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb6);
+        buscador.setCriterio(cb6);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(3, listaFiltrada.size());
     }
 
     @Test
     public void test007_SePuedeFiltrarUnCatalogoSiNoSeCumpleUnaCondicionEspecifica(){
-        List<Servicio> listaFiltrada = catalogo.buscarServicio(cb7);
+        buscador.setCriterio(cb7);
+        List<Servicio> listaFiltrada = buscador.buscarServicios();
         assertEquals(2, listaFiltrada.size());
     }
 

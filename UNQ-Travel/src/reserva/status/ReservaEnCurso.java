@@ -1,6 +1,7 @@
 package reserva.status;
 
 import reserva.Reserva;
+import reserva.status.excepcionStatus.OperacionDeEstadoInvalida;
 
 public class ReservaEnCurso extends ReservaStatus {
     public ReservaEnCurso(){
@@ -8,7 +9,12 @@ public class ReservaEnCurso extends ReservaStatus {
     }
     @Override
     public void procesarReserva(Reserva r) {
-        this.cambiarEstado(r, new ReservaFinalizada());
+        if(r.todosFueronDisfrutados()) {
+            this.cambiarEstado(r, new ReservaFinalizada());
+        }
+        else{
+            throw new OperacionDeEstadoInvalida("No puede finalizar una reserva que no disfrutó todos sus servicios");
+        }
     }
 
     @Override
@@ -19,4 +25,7 @@ public class ReservaEnCurso extends ReservaStatus {
 
     @Override
     public boolean debeEnviarMail() { return true; }
+
+    @Override
+    public boolean puedeDisfrutar() { return true; }
 }

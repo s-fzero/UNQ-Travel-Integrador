@@ -15,4 +15,5 @@ public abstract class ReservaStatus {
     public boolean debeGenerarVoucher() {return false;}
     public boolean debeFidelizar() {return false;}
     public boolean estaFinalizada() {return false;}
+    public boolean puedeDisfrutar() {return false;}
 }
