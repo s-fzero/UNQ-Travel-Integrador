@@ -20,4 +20,7 @@ public class ReservaCancelada extends ReservaStatus {
 
     @Override
     public boolean debeGenerarVoucher() { return true; }
+
+    @Override
+    public boolean debeFidelizar() {  return true; }
 }
